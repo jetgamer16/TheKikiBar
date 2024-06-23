@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<style>
+  .main-background {
+    background-image: url('/images/contact-background.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .content-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay */
+  }
+</style>
+
+<Layout>
+  <div class="relative main-background">
+    <div class="overlay"></div>
+    <div class="content-wrapper p-6">
+      <h1 class="titleText text-4xl font-bold text-center text-white ">Contact Us</h1>
+
+      <div class="carousel mx-auto relative overflow-hidden max-w-xl mt-10 rounded-lg shadow-neon bg-gray-800 bg-opacity-80">
+        <div class="carousel-inner flex transition-transform duration-5000 ease-in-out" style="transform: translateX(0%);">
+          <div class="carousel-item flex-shrink-2 ">
+            <img src="/images/cocktail1.jpg" alt="Cocktail 1" >
+          </div>
+          <div class="carousel-item flex-shrink-0 ">
+            <img src="/images/cocktail2.jpg" alt="Cocktail 2" >
+          </div>
+          <div class="carousel-item flex-shrink-0 ">
+            <img src="/images/cocktail3.jpg" alt="Cocktail 3" >
+          </div>
+        </div>
+
+        <div class="carousel-indicators absolute bottom-2 left-0 right-0 flex justify-center space-x-3">
+          <button class="active w-3 h-3 bg-gray-300 rounded-full" data-slide="0"></button>
+          <button class="w-3 h-3 bg-gray-300 rounded-full" data-slide="1"></button>
+          <button class="w-3 h-3 bg-gray-300 rounded-full" data-slide="2"></button>
+        </div>
+
+        </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
+        <div class="social-container p-6 rounded-lg shadow-neon bg-gray-800 bg-opacity-80">
+          <h2 class="text-2xl font-semibold text-white mb-4 text-center">Follow Us</h2>
+          <div class="flex justify-center space-x-6">
+            <a href="#" class="text-2xl text-blue-500"><i class="fa fa-facebook">Facebook</i></a>
+            <a href="#" class="text-2xl text-blue-500"><i class="fa fa-twitter">Twitter</i></a>
+            <a href="#" class="text-2xl text-blue-500"><i class="fa fa-instagram">Instagram</i></a>
+
+          </div>
+        </div>
+
+        <div class="newsletter-container p-6 rounded-lg shadow-neon bg-gray-800 bg-opacity-80">
+          <h2 class="text-2xl font-semibold text-white mb-4 text-center">Subscribe to our Newsletter</h2>
+          <form class="flex flex-col md:flex-row justify-center space-y-3 md:space-y-0 md:space-x-3">
+            <input type="email" placeholder="Enter your email" required class="p-2 rounded-lg border border-gray-300">
+            <button type="submit" class="p-2 bg-blue-500 text-white rounded-lg">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="map-container mt-10 mx-auto max-w-4xl text-center p-6 rounded-lg shadow-neon bg-gray-800 bg-opacity-80">
+        <h2 class="text-2xl font-semibold text-white mb-4 text-center">Our Location</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.83543450956!2d144.95373631550483!3d-37.81627944202148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d9f4b7c4c5c5!2sVictoria!5e0!3m2!1sen!2sau!4v1585834392671!5m2!1sen!2sau" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" class="w-full h-96 rounded-lg"></iframe>
+      </div>
+
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.carousel-item');
+      const indicators = document.querySelectorAll('.carousel-indicators button');
+      const prevButton = document.querySelector('.carousel-control-prev');
+      const nextButton = document.querySelector('.carousel-control-next');
+      let currentIndex = 0;
+      const slideIntervalTime = 5000;
+      let slideInterval = setInterval(nextSlide, slideIntervalTime);
+
+      function updateCarousel(index) {
+        const carouselInner = document.querySelector('.carousel-inner');
+        carouselInner.style.transform = `translateX(-${index * 100}%)`;
+        indicators.forEach((indicator, i) => {
+          indicator.classList.toggle('active', i === index);
+        });
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel(currentIndex);
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel(currentIndex);
+      }
+
+      nextButton.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        nextSlide();
+        slideInterval = setInterval(nextSlide, slideIntervalTime);
+      });
+
+      prevButton.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        prevSlide();
+        slideInterval = setInterval(nextSlide, slideIntervalTime);
+      });
+
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          clearInterval(slideInterval);
+          currentIndex = index;
+          updateCarousel(currentIndex);
+          slideInterval = setInterval(nextSlide, slideIntervalTime);
+        });
+      });
+
+      updateCarousel(currentIndex);
+    });
+  </script>
+</Layout>
+<footer class="bg-gray-800 text-white text-center p-6  shadow-neon">
+  <p>Calle Buena, 24, Fuenlabrada, Madrid</p>
+  <p>Phone: (34) 658422369 - 966558249</p>
+  <p>Email: TheFreakBar@gmail.com</p>
+</footer>

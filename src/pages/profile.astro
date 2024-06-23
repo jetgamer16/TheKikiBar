@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+import cocktailsData from '../data/cocktails.json';
+
+const { searchParams } = Astro.url;
+const username = searchParams.get('username');
+
+const userResponse = await fetch(`http://localhost:3000/users?username=${username}`);
+const users = await userResponse.json();
+const user = users.length > 0 ? users[0] : null;
+
+if (!user) {
+  return {
+    redirect: '/login'
+  };
+}
+---
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .profile-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .profile-header h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .profile-info {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  .profile-info label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+  }
+
+  .profile-info input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: black;
+    background-color: white;
+  }
+
+  .profile-info button {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: cyan;
+    color: black;
+    font-size: 1.4rem;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .favorites-list {
+    margin-top: 40px;
+    width: 100%;
+  }
+
+  .favorite-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .favorite-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+
+  .favorite-item h3 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+
+  .logout-button {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: red;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+</style>
+
+<Layout>
+  <div class="profile-container">
+    <div class="profile-header">
+      <h1 id="username-display">{user.username}</h1>
+    </div>
+
+    <div class="profile-info">
+      <label for="email">Email</label>
+      <input type="email" id="email" value={user.email} disabled />
+      <label for="username">Username</label>
+      <input type="text" id="username" value={user.username} />
+      <button onclick="updateProfile()">Update Profile</button>
+    </div>
+
+    <div class="favorites-list">
+      <h2>Favorite Cocktails</h2>
+      <div id="favorites-container">
+        {user.favorites.length > 0 ? (
+          user.favorites.map(favoriteId => {
+            const cocktail = cocktailsData.cocteles.find(c => c.id === favoriteId);
+            return (
+              <div class="favorite-item">
+                <img src={`/images/${cocktail.name}.jpg`} alt={cocktail.name} />
+                <h3>{cocktail.name}</h3>
+              </div>
+            );
+          })
+        ) : (
+          <p>No favorite cocktails yet.</p>
+        )}
+      </div>
+    </div>
+    <button class="logout-button" onclick="handleLogout()">Logout</button>
+  </div>
+</Layout>
+
+<script>
+  async function updateProfile() {
+    const newUsername = document.getElementById('username').value;
+    const userResponse = await fetch(`http://localhost:3000/users?username=${newUsername}`);
+  const user = (await userResponse.json())[0];
+
+  if (user && user.username === newUsername) {
+    alert('Username already exists');
+  } else {
+    const currentUser = await fetch(`http://localhost:3000/users?username=${username}`);
+    const currentUserData = (await currentUser.json())[0];
+    currentUserData.username = newUsername;
+
+    await fetch(`http://localhost:3000/users/${currentUserData.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(currentUserData)
+    });
+
+    alert('Profile updated!');
+    window.location.href = `/profile?username=${newUsername}`;
+  }
+}
+
+function handleLogout() {
+  localStorage.removeItem('username');
+  localStorage.removeItem('favorites');
+  window.location.href = '/';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const usernameDisplay = document.getElementById('username-display');
+  if (!usernameDisplay) {
+    handleLogout();
+  }
+});
+</script>

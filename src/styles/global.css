@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.titleText {
+    padding-top: 5%;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%;
+    animation: slide 15s infinite;
+}
+
+.carousel-item {
+    width: 100%;
+    flex: 1 0 100%;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(-100%); }
+    66.66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.carousel-indicators button {
+    background-color: #bbb;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 15px;
+    margin: 0 5px;
+    width: 15px;
+    transition: background-color 0.6s ease;
+}
+
+.carousel-indicators button.active {
+    background-color: #717171;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    z-index: 1;
+}
+
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    margin: auto;
+  }
+  
+  .carousel-inner {
+    display: flex;
+    width: 300%;
+    animation: slide 15s infinite;
+  }
+  
+  .carousel-item {
+    width: 100%;
+    flex: 1 0 100%;
+  }
+  
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(-100%); }
+    66.66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+  }
+  
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+  }
+  
+  .carousel-indicators button {
+    background-color: #bbb;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 15px;
+    margin: 0 5px;
+    width: 15px;
+    transition: background-color 0.6s ease;
+  }
+  
+  .carousel-indicators button.active {
+    background-color: #717171;
+  }
+  
+  .carousel-control-prev, .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    z-index: 1;
+  }
+  
+  .carousel-control-prev {
+    left: 10px;
+  }
+  
+  .carousel-control-next {
+    right: 10px;
+  }
+  

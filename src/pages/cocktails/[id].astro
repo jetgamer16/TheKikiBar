@@ -1,0 +1,153 @@
+---
+// src/pages/cocktails/[id].astro
+import Layout from '../../layouts/Layout.astro';
+import cocktailsData from '../../data/cocktails.json';
+
+export async function getStaticPaths() {
+  const paths = cocktailsData.cocteles.map(cocktail => ({
+    params: { id: cocktail.id.toString() },
+  }));
+  return paths;
+}
+
+const { id } = Astro.params;
+const cocktail = cocktailsData.cocteles.find(c => c.id === id);
+---
+
+<Layout title="Cocktail Detail">
+  <style>
+    body{
+      background-image: url('/images/menuImg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .cocktail-detail {
+      display: flex;
+      max-width: 1200px;
+      margin: 100px auto;
+      padding: 20px;
+      background: rgba(26, 26, 26, 0.9);
+      color: #f5f5f5;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 16px rgba(213, 0, 249, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(213, 0, 249, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .cocktail-detail::before, .cocktail-detail::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(213, 0, 249, 0.3);
+      z-index: 0;
+      transform: rotate(45deg);
+      transition: opacity 0.5s ease;
+    }
+    .cocktail-detail::after {
+      background: rgba(0, 230, 230, 0.3);
+      transition-delay: 0.25s;
+    }
+    .cocktail-detail:hover::before, .cocktail-detail:hover::after {
+      opacity: 0;
+    }
+    .cocktail-image {
+      width: 50%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .cocktail-info {
+      width: 50%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .cocktail-info h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #d500f9;
+    }
+    .cocktail-info p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .cocktail-info ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .cocktail-info li {
+      margin-bottom: 5px;
+    }
+    .cocktail-info .preparation {
+      margin-top: 20px;
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #00e6e6, #d500f9);
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+    .back-button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #d500f9, #00e6e6);
+    }
+    .back-button::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      z-index: 0;
+      transform: rotate(45deg);
+      transition: opacity 0.5s ease;
+    }
+    .back-button::after {
+      background: rgba(0, 230, 230, 0.3);
+      transition-delay: 0.25s;
+    }
+  </style>
+
+  {cocktail ? (
+    <div class="cocktail-detail">
+      <img src={cocktail.image} alt={cocktail.name} class="cocktail-image" />
+      <div class="cocktail-info">
+        <h2>{cocktail.name}</h2>
+        <p>{cocktail.description}</p>
+        <h3>Ingredients:</h3>
+        <ul>
+          {cocktail.ingredients.map(ingredient => (
+            <li>{ingredient}</li>
+          ))}
+        </ul>
+        <p><strong>Price:</strong> {cocktail.price}€</p>
+        <div class="preparation">
+          <h3>How to Prepare:</h3>
+          <p>{cocktail.preparation}</p>
+        </div>
+        <a href="/coctelesMenu" class="back-button" transition:animate="slide">Back to Menu</a>
+      </div>
+    </div>
+  ) : (
+    <p>Cocktail not found</p>
+  )}
+</Layout>

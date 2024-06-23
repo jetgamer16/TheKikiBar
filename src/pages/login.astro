@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .form-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logoImg {
+    width: 200px;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .form input {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+  }
+
+  .form button {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background: cyan;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .link {
+    margin-top: 10px;
+    color: cyan;
+    cursor: pointer;
+  }
+</style>
+
+<Layout>
+  <div class="container">
+    <div class="form-container">
+      <a href="/"><img class="logoImg" src="/images/logo.png" alt="Logo" /></a>
+      <form id="login" class="form" method="POST" onsubmit="handleLogin(event)">
+        <input type="text" placeholder="Username" name="username" required />
+        <input type="password" placeholder="Password" name="password" required />
+        <button type="submit">Login</button>
+      </form>
+      <a href="/register" class="link">Don't have an account? Register</a>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  async function handleLogin(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (response.redirected) {
+      window.location.href = response.url;
+    } else {
+      alert(await response.text());
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const username = localStorage.getItem('username');
+    if (username) {
+      document.getElementById('profile-link').style.display = 'inline';
+      document.getElementById('profile-link').querySelector('a').textContent = username;
+      document.getElementById('login-link').style.display = 'none';
+      document.getElementById('logout-link').style.display = 'inline';
+    }
+
+    document.getElementById('logout-button').addEventListener('click', handleLogout);
+  });
+</script>

@@ -1,0 +1,310 @@
+{
+  "cocteles": [
+    {
+      "id": "1",
+      "name": "Margarita",
+      "description": "Tequila, jugo de limón, triple sec.",
+      "ingredients": ["Tequila", "Jugo de limón", "Triple sec"],
+      "price": "10",
+      "image": "/images/margarita.jpg",
+      "base": "Tequila",
+      "preparation": "1. Combine tequila, lime juice, and triple sec in a shaker with ice. 2. Shake well and strain into a glass with a salted rim. 3. Garnish with a lime wheel."
+    },
+    {
+      "id": "2",
+      "name": "Mojito",
+      "description": "Ron, azúcar, limón, soda, menta.",
+      "ingredients": ["Ron", "Azúcar", "Limón", "Soda", "Menta"],
+      "price": "8",
+      "image": "/images/mojito.jpg",
+      "base": "Ron",
+      "preparation": "1. Muddle mint leaves and sugar in a glass. 2. Add lime juice and rum, then fill the glass with ice. 3. Top with soda water and garnish with a mint sprig."
+    },
+    {
+      "id": "3",
+      "name": "Piña Colada",
+      "description": "Ron, crema de coco, jugo de piña.",
+      "ingredients": ["Ron", "Crema de coco", "Jugo de piña"],
+      "price": "9",
+      "image": "/images/pina_colada.jpg",
+      "base": "Ron",
+      "preparation": "1. Combine rum, coconut cream, and pineapple juice in a blender with ice. 2. Blend until smooth and pour into a chilled glass. 3. Garnish with a pineapple slice and cherry."
+    },
+    {
+      "id": "4",
+      "name": "Cosmopolitan",
+      "description": "Vodka, triple sec, jugo de arándano, jugo de limón.",
+      "ingredients": ["Vodka", "Triple sec", "Jugo de arándano", "Jugo de limón"],
+      "price": "11",
+      "image": "/images/cosmopolitan.jpg",
+      "base": "Vodka",
+      "preparation": "1. Combine vodka, triple sec, cranberry juice, and lime juice in a shaker with ice. 2. Shake well and strain into a chilled martini glass. 3. Garnish with a lime twist."
+    },
+    {
+      "id": "5",
+      "name": "Caipirinha",
+      "description": "Cachaça, azúcar, limón.",
+      "ingredients": ["Cachaça", "Azúcar", "Limón"],
+      "price": "7",
+      "image": "/images/caipirinha.jpg",
+      "base": "Cachaça",
+      "preparation": "1. Muddle lime wedges and sugar in a glass. 2. Fill the glass with ice and add cachaça. 3. Stir well and serve."
+    },
+    {
+      "id": "6",
+      "name": "Daiquiri",
+      "description": "Ron, jugo de limón, azúcar.",
+      "ingredients": ["Ron", "Jugo de limón", "Azúcar"],
+      "price": "8",
+      "image": "/images/daiquiri.jpg",
+      "base": "Ron",
+      "preparation": "1. Combine rum, lime juice, and simple syrup in a shaker with ice. 2. Shake well and strain into a chilled glass. 3. Garnish with a lime twist."
+    },
+    {
+      "id": "7",
+      "name": "Old Fashioned",
+      "description": "Whisky, azúcar, amargos, agua.",
+      "ingredients": ["Whisky", "Azúcar", "Amargos", "Agua"],
+      "price": "12",
+      "image": "/images/old_fashioned.jpg",
+      "base": "Whisky",
+      "preparation": "1. Muddle sugar and bitters with a splash of water in a glass. 2. Add ice and whiskey, then stir. 3. Garnish with an orange peel and cherry."
+    },
+    {
+      "id": "8",
+      "name": "Manhattan",
+      "description": "Whisky, vermut rojo, amargos.",
+      "ingredients": ["Whisky", "Vermut rojo", "Amargos"],
+      "price": "11",
+      "image": "/images/manhattan.jpg",
+      "base": "Whisky",
+      "preparation": "1. Combine whiskey, sweet vermouth, and bitters in a mixing glass with ice. 2. Stir and strain into a chilled glass. 3. Garnish with a cherry."
+    },
+    {
+      "id": "9",
+      "name": "Mai Tai",
+      "description": "Ron, triple sec, jugo de lima, jarabe de almendra.",
+      "ingredients": ["Ron", "Triple sec", "Jugo de lima", "Jarabe de almendra"],
+      "price": "10",
+      "image": "/images/mai_tai.jpg",
+      "base": "Ron",
+      "preparation": "1. Combine rum, lime juice, orgeat syrup, and triple sec in a shaker with ice. 2. Shake well and strain into a glass filled with ice. 3. Garnish with a mint sprig and lime wheel."
+    },
+    {
+      "id": "10",
+      "name": "Mint Julep",
+      "description": "Bourbon, menta, azúcar, agua.",
+      "ingredients": ["Bourbon", "Menta", "Azúcar", "Agua"],
+      "price": "9",
+      "image": "/images/mint_julep.jpg",
+      "base": "Bourbon",
+      "preparation": "1. Muddle mint leaves and sugar with a splash of water in a glass. 2. Fill the glass with ice and add bourbon. 3. Stir and garnish with a mint sprig."
+    },
+    {
+      "id": "11",
+      "name": "Tequila Sunrise",
+      "description": "Tequila, jugo de naranja, granadina.",
+      "ingredients": ["Tequila", "Jugo de naranja", "Granadina"],
+      "price": "8",
+      "image": "/images/tequila_sunrise.jpg",
+      "base": "Tequila",
+      "preparation": "1. Pour tequila and orange juice into a glass filled with ice. 2. Slowly add grenadine, which will settle at the bottom. 3. Garnish with an orange slice and cherry."
+    },
+    {
+      "id": "12",
+      "name": "Whiskey Sour",
+      "description": "Whisky, jugo de limón, azúcar.",
+      "ingredients": ["Whisky", "Jugo de limón", "Azúcar"],
+      "price": "9",
+      "image": "/images/whiskey_sour.jpg",
+      "base": "Whisky",
+      "preparation": "1. Combine whiskey, lemon juice, and simple syrup in a shaker with ice. 2. Shake well and strain into a glass filled with ice. 3. Garnish with a cherry and orange slice."
+    },
+    {
+      "id": "13",
+      "name": "Pisco Sour",
+      "description": "Pisco, jugo de limón, jarabe de azúcar, clara de huevo.",
+      "ingredients": ["Pisco", "Jugo de limón", "Jarabe de azúcar", "Clara de huevo"],
+      "price": "10",
+      "image": "/images/pisco_sour.jpg",
+      "base": "Pisco",
+      "preparation": "1. Combine pisco, lime juice, simple syrup, and egg white in a shaker. 2. Dry shake (without ice) to emulsify. 3. Add ice and shake again, then strain into a glass. 4. Garnish with a few drops of bitters."
+    },
+    {
+      "id": "14",
+      "name": "Tom Collins",
+      "description": "Ginebra, jugo de limón, azúcar, soda.",
+      "ingredients": ["Ginebra", "Jugo de limón", "Azúcar", "Soda"],
+      "price": "8",
+      "image": "/images/tom_collins.jpg",
+      "base": "Ginebra",
+      "preparation": "1. Combine gin, lemon juice, and simple syrup in a shaker with ice. 2. Shake well and strain into a glass filled with ice. 3. Top with soda water and garnish with a lemon slice."
+    },
+    {
+      "id": "15",
+      "name": "Sex on the Beach",
+      "description": "Vodka, licor de durazno, jugo de arándano, jugo de naranja.",
+      "ingredients": ["Vodka", "Licor de durazno", "Jugo de arándano", "Jugo de naranja"],
+      "price": "9",
+      "image": "/images/sex_on_the_beach.jpg",
+      "base": "Vodka",
+      "preparation": "1. Combine vodka, peach schnapps, cranberry juice, and orange juice in a shaker with ice. 2. Shake well and strain into a glass filled with ice. 3. Garnish with an orange slice."
+    },
+    {
+      "id": "16",
+      "name": "Bloody Mary",
+      "description": "Vodka, jugo de tomate, jugo de limón, salsa Worcestershire, tabasco, sal, pimienta.",
+      "ingredients": ["Vodka", "Jugo de tomate", "Jugo de limón", "Salsa Worcestershire", "Tabasco", "Sal", "Pimienta"],
+      "price": "10",
+      "image": "/images/bloody_mary.jpg",
+      "base": "Vodka",
+      "preparation": "1. Combine vodka, tomato juice, lemon juice, Worcestershire sauce, Tabasco, salt, and pepper in a shaker with ice. 2. Shake gently and strain into a glass filled with ice. 3. Garnish with a celery stick and a lemon wedge."
+    },
+    {
+      "id": "17",
+      "name": "Gin Tonic",
+      "description": "Ginebra, tónica, lima.",
+      "ingredients": ["Ginebra", "Tónica", "Lima"],
+      "price": "8",
+      "image": "/images/gin_tonic.jpg",
+      "base": "Ginebra",
+      "preparation": "1. Fill a glass with ice. 2. Add gin and top with tonic water. 3. Garnish with a lime wedge."
+    },
+    {
+      "id": "18",
+      "name": "Blue Lagoon",
+      "description": "Vodka, curaçao azul, jugo de limón.",
+      "ingredients": ["Vodka", "Curaçao azul", "Jugo de limón"],
+      "price": "9",
+      "image": "/images/blue_lagoon.jpg",
+      "base": "Vodka",
+      "preparation": "1. Combine vodka, blue curaçao, and lemonade in a shaker with ice. 2. Shake well and strain into a glass filled with ice. 3. Garnish with a lemon wheel."
+    },
+    {
+      "id": "19",
+      "name": "Negroni",
+      "description": "Ginebra, vermut rojo, Campari.",
+      "ingredients": ["Ginebra", "Vermut rojo", "Campari"],
+      "price": "11",
+      "image": "/images/negroni.jpg",
+      "base": "Ginebra",
+      "preparation": "1. Combine gin, sweet vermouth, and Campari in a mixing glass with ice. 2. Stir and strain into a glass filled with ice. 3. Garnish with an orange peel."
+    },
+    {
+      "id": "20",
+      "name": "Aperol Spritz",
+      "description": "Aperol, prosecco, soda.",
+      "ingredients": ["Aperol", "Prosecco", "Soda"],
+      "price": "10",
+      "image": "/images/aperol_spritz.jpg",
+      "base": "Aperol",
+      "preparation": "1. Fill a glass with ice. 2. Add Aperol, prosecco, and a splash of soda. 3. Stir gently and garnish with an orange slice."
+    },
+    {
+      "id": "21",
+      "name": "French 75",
+      "description": "Ginebra, champaña, jugo de limón, azúcar.",
+      "ingredients": ["Ginebra", "Champaña", "Jugo de limón", "Azúcar"],
+      "price": "12",
+      "image": "/images/french_75.jpg",
+      "base": "Ginebra",
+      "preparation": "1. Combine gin, lemon juice, and simple syrup in a shaker with ice. 2. Shake well and strain into a champagne flute. 3. Top with champagne and garnish with a lemon twist."
+    },
+    {
+      "id": "22",
+      "name": "Bellini",
+      "description": "Champaña, puré de durazno.",
+      "ingredients": ["Champaña", "Puré de durazno"],
+      "price": "10",
+      "image": "/images/bellini.jpg",
+      "base": "Champaña",
+      "preparation": "1. Pour peach puree into a champagne flute. 2. Top with champagne and stir gently."
+    },
+    {
+      "id": "23",
+      "name": "Moscow Mule",
+      "description": "Vodka, cerveza de jengibre, jugo de limón.",
+      "ingredients": ["Vodka", "Cerveza de jengibre", "Jugo de limón"],
+      "price": "9",
+      "image": "/images/moscow_mule.jpg",
+      "base": "Vodka",
+      "preparation": "1. Fill a copper mug with ice. 2. Add vodka and lime juice. 3. Top with ginger beer and garnish with a lime wedge."
+    },
+    {
+      "id": "24",
+      "name": "Paloma",
+      "description": "Tequila, jugo de toronja, soda, sal.",
+      "ingredients": ["Tequila", "Jugo de toronja", "Soda", "Sal"],
+      "price": "8",
+      "image": "/images/paloma.jpg",
+      "base": "Tequila",
+      "preparation": "1. Rim a glass with salt and fill with ice. 2. Add tequila and grapefruit juice. 3. Top with soda and garnish with a grapefruit slice."
+    }
+  ],
+  "users": [    
+  {
+    "id": "1",
+    "username": "user1",
+    "email": "user1@example.com",
+    "password": "password1",
+    "favorites": ["1", "2"]
+  },
+  {
+    "id": "2",
+    "username": "user2",
+    "email": "user2@example.com",
+    "password": "password2",
+    "favorites": ["3", "4"]
+  }
+],
+"eventos": [
+  {
+    "id": "1",
+    "name": "Fiesta de Año Nuevo",
+    "description": "Celebra el Año Nuevo con nosotros.",
+    "date": "31 de diciembre",
+    "price": "50",
+    "image": "/images/new_year_party.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Noche de Salsa",
+    "description": "Ven a bailar salsa toda la noche.",
+    "date": "15 de enero",
+    "price": "20",
+    "image": "/images/salsa_night.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Torneo de Póker",
+    "description": "Participa en nuestro emocionante torneo de póker.",
+    "date": "22 de febrero",
+    "price": "30",
+    "image": "/images/poker_tournament.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Concierto de Jazz",
+    "description": "Disfruta de una noche de jazz en vivo.",
+    "date": "10 de marzo",
+    "price": "25",
+    "image": "/images/jazz_concert.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Fiesta de Disfraces",
+    "description": "Vístete con tu mejor disfraz y gana premios.",
+    "date": "31 de octubre",
+    "price": "15",
+    "image": "/images/costume_party.jpg"
+  },
+  {
+    "id": "6",
+    "name": "Cata de Vinos",
+    "description": "Prueba una selección de vinos exquisitos.",
+    "date": "5 de noviembre",
+    "price": "40",
+    "image": "/images/wine_tasting.jpg"
+  }
+  ]
+}

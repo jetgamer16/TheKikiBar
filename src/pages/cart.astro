@@ -1,0 +1,123 @@
+---
+// src/pages/cart.astro
+import Layout from '../layouts/Layout.astro';
+let cart = [];
+---
+
+<Layout title="Your Cart">
+  <style>
+    body {
+      padding-top: 100px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      background-color: #2a2a2a;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    .cart-item button {
+      padding: 5px 10px;
+      background-color: #00e6e6;
+      color: #1a1a1a;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .cart-item button:hover {
+      background-color: #00b3b3;
+      color: #fff;
+    }
+    .cart-summary {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      background-color: #2a2a2a;
+      padding: 10px;
+      border-radius: 4px;
+    }
+  </style>
+
+  <div class="container">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="cart-summary">
+      Total: <span id="cart-total"></span>
+    </div>
+  </div>
+
+  <script type="module">
+    const cart = [];
+
+    const renderCart = () => {
+      const cartContainer = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      cartContainer.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.quantity * item.price;
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+          <p>${item.name} - ${item.price} x ${item.quantity}</p>
+          <button data-index="${index}">Remove</button>
+        `;
+        cartContainer.appendChild(cartItem);
+      });
+      cartTotal.innerText = total.toFixed(2);
+      cartContainer.querySelectorAll('button[data-index]').forEach(button => {
+        button.addEventListener('click', () => removeFromCart(button.dataset.index));
+      });
+    };
+
+    const removeFromCart = (index) => {
+      const item = cart[index];
+      if (item.quantity > 1) {
+        item.quantity -= 1;
+      } else {
+        cart.splice(index, 1);
+      }
+      renderCart();
+      updateCartPopup();
+    };
+
+    const updateCartPopup = () => {
+      const cartPopup = document.getElementById('cart-popup');
+      const cartPopupMessage = document.getElementById('cart-popup-message');
+      const checkoutButton = document.getElementById('checkout-button');
+      const cartButton = document.getElementById('cart-button');
+
+      if (cart.length > 0) {
+        const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+        cartPopupMessage.innerText = `${itemCount} producto(s) en el carrito`;
+        cartPopup.style.display = 'block';
+
+        checkoutButton.onclick = () => {
+          // Logica de pago (por ejemplo, redireccionar a una página de checkout)
+          alert("Redirigir a la página de pago");
+        };
+
+        cartButton.onclick = () => {
+          // Redirigir a la página del carrito
+          window.location.href = '/cart';
+        };
+      } else {
+        cartPopup.style.display = 'none';
+      }
+    };
+
+    // Initialize the cart
+    renderCart();
+    updateCartPopup();
+  </script>
+</Layout>
