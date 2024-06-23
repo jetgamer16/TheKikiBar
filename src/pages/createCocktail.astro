@@ -18,8 +18,13 @@ const bases = ["Vodka", "Rum", "Tequila", "Whiskey", "Gin", "Cachaça", "Pisco",
       background-image: url('/images/create.jpg');
       background-size: cover;
       background-position: center;
+    }
+    h2{
+        margin-left: 160px;
+      display: flex;
       align-items: center;
     }
+
     .form-container {
       max-width: 600px;
       width: 100%;
@@ -68,36 +73,42 @@ const bases = ["Vodka", "Rum", "Tequila", "Whiskey", "Gin", "Cachaça", "Pisco",
     .form-container .checkbox-container input {
       margin-left: 460px;
     }
+    .volver{
+        margin-bottom: 20px;
+    }
   </style>
 
   <div class="form-container">
-    <h2>Create Your Cocktail</h2>
+    <h2>Crea Tu Cóctel</h2>
+    <button class="volver">
+    <a href="/coctelesMenu"> Volver a la seleccion de Cocteles</a>
+    </button>
     <form>
-      <label for="cocktailName">Cocktail Name:</label>
+      <label for="cocktailName">Nombre del Cóctel :</label>
       <input type="text" id="cocktailName" name="cocktailName" required />
 
-      <label for="authorName">Author Name:</label>
+      <label for="authorName">Autor :</label>
       <input type="text" id="authorName" name="authorName" required />
 
-      <label for="baseLiquor">Base Liquor:</label>
+      <label for="baseLiquor">Licor Base:</label>
       <select id="baseLiquor" name="baseLiquor" required>
-        <option value="">Select a base liquor</option>
+        <option value="">Selecciona tu licor base</option>
         {bases.map(base => (
           <option value={base}>{base}</option>
         ))}
       </select>
 
-      <label for="ingredient1">Select Ingredient 1:</label>
+      <label for="ingredient1">Selecciona el Ingrediente 1:</label>
       <select id="ingredient1" name="ingredient1" required>
-        <option value="">Select an ingredient</option>
+        <option value="">Selecciona un ingrediente</option>
         {uniqueIngredients.map(ingredient => (
           <option value={ingredient}>{ingredient}</option>
         ))}
       </select>
 
-      <label for="ingredient2">Select Ingredient 2:</label>
+      <label for="ingredient2">Selecciona el Ingrediente 2:</label>
       <select id="ingredient2" name="ingredient2" required>
-        <option value="">Select an ingredient</option>
+        <option value="">Selecciona un Ingrediente</option>
         {uniqueIngredients.map(ingredient => (
           <option value={ingredient}>{ingredient}</option>
         ))}
@@ -108,7 +119,7 @@ const bases = ["Vodka", "Rum", "Tequila", "Whiskey", "Gin", "Cachaça", "Pisco",
         <label for="alcoholic">ExtraShot</label>
       </div>
 
-      <label for="description">Description:</label>
+      <label for="description">Descripcion:</label>
       <textarea id="description" name="description" rows="4" required></textarea>
 
       <button type="submit">Create Cocktail</button>

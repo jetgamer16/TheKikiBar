@@ -18,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay */
+    background-color: rgba(0, 0, 0, 0.5); 
   }
 </style>
 
@@ -26,18 +26,33 @@ import Layout from '../layouts/Layout.astro';
   <div class="relative main-background">
     <div class="overlay"></div>
     <div class="content-wrapper p-6">
-      <h1 class="titleText text-4xl font-bold text-center text-white ">Contact Us</h1>
-
+      <h1 class="titleText text-4xl font-bold text-center text-white ">Contactanos</h1>
+        <p class="titleText text-xl font-bold text-center p-2 text-white">Si tienes alguna pregunta o necesitas más ayuda, no dudes en ponerte en contacto con nosotros utilizando el formulario a continuación.</p>
+        <form class="max-w-lg mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
+          <div class="mb-4">
+            <label for="name" class="block text-gray-300">Nombre:</label>
+            <input type="text" id="name" name="name" required class="w-full p-2 mt-1 bg-gray-700 text-white rounded" />
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-gray-300">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required class="w-full p-2 mt-1 bg-gray-700 text-white rounded" />
+          </div>
+          <div class="mb-4">
+            <label for="message" class="block text-gray-300">Mensaje:</label>
+            <textarea id="message" name="message" required class="w-full p-2 mt-1 bg-gray-700 text-white rounded"></textarea>
+          </div>
+          <button type="submit" class="w-full py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded">Enviar</button>
+        </form>
       <div class="carousel mx-auto relative overflow-hidden max-w-xl mt-10 rounded-lg shadow-neon bg-gray-800 bg-opacity-80">
         <div class="carousel-inner flex transition-transform duration-5000 ease-in-out" style="transform: translateX(0%);">
           <div class="carousel-item flex-shrink-2 ">
-            <img src="/images/cocktail1.jpg" alt="Cocktail 1" >
+            <img src="/images/contacto1.jpg" alt="Cocktail 1" >
           </div>
           <div class="carousel-item flex-shrink-0 ">
-            <img src="/images/cocktail2.jpg" alt="Cocktail 2" >
+            <img src="/images/contacto2.jpg" alt="Cocktail 2" >
           </div>
           <div class="carousel-item flex-shrink-0 ">
-            <img src="/images/cocktail3.jpg" alt="Cocktail 3" >
+            <img src="/images/contacto3.jpg" alt="Cocktail 3" >
           </div>
         </div>
 
@@ -51,7 +66,7 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
         <div class="social-container p-6 rounded-lg shadow-neon bg-gray-800 bg-opacity-80">
-          <h2 class="text-2xl font-semibold text-white mb-4 text-center">Follow Us</h2>
+          <h2 class="text-2xl font-semibold text-white mb-4 text-center">Siguenos:</h2>
           <div class="flex justify-center space-x-6">
             <a href="#" class="text-2xl text-blue-500"><i class="fa fa-facebook">Facebook</i></a>
             <a href="#" class="text-2xl text-blue-500"><i class="fa fa-twitter">Twitter</i></a>
@@ -61,16 +76,16 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <div class="newsletter-container p-6 rounded-lg shadow-neon bg-gray-800 bg-opacity-80">
-          <h2 class="text-2xl font-semibold text-white mb-4 text-center">Subscribe to our Newsletter</h2>
+          <h2 class="text-2xl font-semibold text-white mb-4 text-center">Subscribete a nuestro Boletín</h2>
           <form class="flex flex-col md:flex-row justify-center space-y-3 md:space-y-0 md:space-x-3">
             <input type="email" placeholder="Enter your email" required class="p-2 rounded-lg border border-gray-300">
-            <button type="submit" class="p-2 bg-blue-500 text-white rounded-lg">Subscribe</button>
+            <button type="submit" class="p-2 bg-blue-500 text-white rounded-lg">Subscribirse</button>
           </form>
         </div>
       </div>
 
       <div class="map-container mt-10 mx-auto max-w-4xl text-center p-6 rounded-lg shadow-neon bg-gray-800 bg-opacity-80">
-        <h2 class="text-2xl font-semibold text-white mb-4 text-center">Our Location</h2>
+        <h2 class="text-2xl font-semibold text-white mb-4 text-center">Nuestra Localización</h2>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.83543450956!2d144.95373631550483!3d-37.81627944202148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d9f4b7c4c5c5!2sVictoria!5e0!3m2!1sen!2sau!4v1585834392671!5m2!1sen!2sau" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" class="w-full h-96 rounded-lg"></iframe>
       </div>
 
